@@ -1,0 +1,391 @@
+{
+  "v1": {
+    "steps": {
+      "0": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 1,
+        "end": false
+      },
+      "1": {
+        "item": "shapan",
+        "slot": "body",
+        "level": 1,
+        "end": false
+      },
+      "2": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 1,
+        "end": true
+      },
+      "3": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 2,
+        "end": false
+      },
+      "4": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 2,
+        "end": false
+      },
+      "5": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 2,
+        "end": true
+      },
+      "6": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 3,
+        "end": false
+      },
+      "7": {
+        "item": "ishik",
+        "slot": "body",
+        "level": 3,
+        "end": false
+      },
+      "8": {
+        "item": "borik",
+        "slot": "head",
+        "level": 3,
+        "end": true
+      },
+      "9": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 4,
+        "end": false
+      },
+      "10": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 4,
+        "end": false
+      },
+      "11": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 4,
+        "end": false
+      },
+      "12": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 4,
+        "end": true
+      },
+      "13": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 5,
+        "end": false
+      },
+      "14": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 5,
+        "end": false
+      },
+      "15": {
+        "item": "shapan",
+        "slot": "body",
+        "level": 5,
+        "end": false
+      },
+      "16": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 5,
+        "end": true
+      },
+      "17": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 6,
+        "end": false
+      },
+      "18": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 6,
+        "end": false
+      },
+      "19": {
+        "item": "saukele",
+        "slot": "head",
+        "level": 6,
+        "end": true
+      },
+      "20": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 7,
+        "end": false
+      },
+      "21": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 7,
+        "end": false
+      },
+      "22": {
+        "item": "ishik",
+        "slot": "body",
+        "level": 7,
+        "end": false
+      },
+      "23": {
+        "item": "borik",
+        "slot": "head",
+        "level": 7,
+        "end": true
+      },
+      "24": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 8,
+        "end": false
+      },
+      "25": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 8,
+        "end": false
+      },
+      "26": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 8,
+        "end": false
+      },
+      "27": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 8,
+        "end": true
+      },
+      "28": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 9,
+        "end": false
+      },
+      "29": {
+        "item": "shapan",
+        "slot": "body",
+        "level": 9,
+        "end": false
+      },
+      "30": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 9,
+        "end": false
+      },
+      "31": {
+        "item": "borik",
+        "slot": "head",
+        "level": 9,
+        "end": true
+      },
+      "32": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 10,
+        "end": false
+      },
+      "33": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 10,
+        "end": false
+      },
+      "34": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 10,
+        "end": false
+      },
+      "35": {
+        "item": "saukele",
+        "slot": "head",
+        "level": 10,
+        "end": true
+      },
+      "36": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 11,
+        "end": false
+      },
+      "37": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 11,
+        "end": false
+      },
+      "38": {
+        "item": "shapan",
+        "slot": "body",
+        "level": 11,
+        "end": false
+      },
+      "39": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 11,
+        "end": false
+      },
+      "40": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 11,
+        "end": true
+      },
+      "41": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 12,
+        "end": false
+      },
+      "42": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 12,
+        "end": false
+      },
+      "43": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 12,
+        "end": false
+      },
+      "44": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 12,
+        "end": false
+      },
+      "45": {
+        "item": "taqiya",
+        "slot": "head",
+        "level": 12,
+        "end": true
+      },
+      "46": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 13,
+        "end": false
+      },
+      "47": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 13,
+        "end": false
+      },
+      "48": {
+        "item": "ishik",
+        "slot": "body",
+        "level": 13,
+        "end": false
+      },
+      "49": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 13,
+        "end": false
+      },
+      "50": {
+        "item": "borik",
+        "slot": "head",
+        "level": 13,
+        "end": true
+      },
+      "51": {
+        "item": "koylek",
+        "slot": "body",
+        "level": 14,
+        "end": false
+      },
+      "52": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 14,
+        "end": false
+      },
+      "53": {
+        "item": "kamzol",
+        "slot": "body",
+        "level": 14,
+        "end": false
+      },
+      "54": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 14,
+        "end": false
+      },
+      "55": {
+        "item": "saukele",
+        "slot": "head",
+        "level": 14,
+        "end": true
+      },
+      "56": {
+        "item": "shalbar",
+        "slot": "legs",
+        "level": 15,
+        "end": false
+      },
+      "57": {
+        "item": "masi",
+        "slot": "feet",
+        "level": 15,
+        "end": false
+      },
+      "58": {
+        "item": "shapan",
+        "slot": "body",
+        "level": 15,
+        "end": false
+      },
+      "59": {
+        "item": "beldik",
+        "slot": "waist",
+        "level": 15,
+        "end": false
+      },
+      "60": {
+        "item": "borik",
+        "slot": "head",
+        "level": 15,
+        "end": true
+      }
+    },
+    "items": {
+      "shapan": true,
+      "kamzol": true,
+      "saukele": true,
+      "taqiya": true,
+      "borik": true,
+      "koylek": true,
+      "shalbar": true,
+      "beldik": true,
+      "masi": true,
+      "ishik": true
+    },
+    "slots": {
+      "head": true,
+      "body": true,
+      "legs": true,
+      "waist": true,
+      "feet": true
+    }
+  }
+}

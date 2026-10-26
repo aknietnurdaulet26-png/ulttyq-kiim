@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.openai/
+*-debug.log
+.firebase/
+.DS_Store

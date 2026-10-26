@@ -1,0 +1,127 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "teachers": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": false
+      }
+    },
+    "catalog": {
+      ".read": "auth != null",
+      ".write": false
+    },
+    "teacherRooms": {
+      "$uid": {
+        ".read": "auth != null && root.child('teachers').child(auth.uid).val() === true && auth.uid === $uid",
+        "$code": {
+          ".write": "auth != null && root.child('teachers').child(auth.uid).val() === true && auth.uid === $uid",
+          ".validate": "newData.val() === true"
+        }
+      }
+    },
+    "rooms": {
+      "$code": {
+        "meta": {
+          ".read": "auth != null",
+          ".write": "auth != null && root.child('teachers').child(auth.uid).val() === true && newData.exists() && ((!data.exists() && newData.child('owner').val() === auth.uid && $code.matches(/^[A-HJ-NP-Z2-9]{6}$/)) || data.child('owner').val() === auth.uid)",
+          ".validate": "newData.hasChildren(['owner','title','status','round','createdAt','startedAt','pausedAt','pausedMs'])",
+          "owner": {
+            ".validate": "newData.isString() && (!data.exists() || newData.val() === data.val())"
+          },
+          "title": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 80"
+          },
+          "status": {
+            ".validate": "newData.val() === 'waiting' || newData.val() === 'running' || newData.val() === 'paused' || newData.val() === 'ended'"
+          },
+          "round": {
+            ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() % 1 === 0"
+          },
+          "createdAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "startedAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "pausedAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "pausedMs": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "admissions": {
+          "$round": {
+            ".read": "(auth != null && root.child('teachers').child(auth.uid).val() === true && root.child('rooms').child($code).child('meta').child('owner').val() === auth.uid) || (auth != null && root.child('rooms').child($code).child('admissions').child($round).child(auth.uid).val() === true)",
+            ".write": "auth != null && root.child('teachers').child(auth.uid).val() === true && root.child('rooms').child($code).child('meta').child('owner').val() === auth.uid",
+            "$uid": {
+              ".read": "auth != null && auth.uid === $uid",
+              ".write": "auth != null && root.child('teachers').child(auth.uid).val() === true && root.child('rooms').child($code).child('meta').child('owner').val() === auth.uid",
+              ".validate": "newData.isBoolean()"
+            }
+          }
+        },
+        "players": {
+          "$round": {
+            ".read": "(auth != null && root.child('teachers').child(auth.uid).val() === true && root.child('rooms').child($code).child('meta').child('owner').val() === auth.uid) || (auth != null && root.child('rooms').child($code).child('admissions').child($round).child(auth.uid).val() === true)",
+            "$uid": {
+              ".read": "auth != null && auth.uid === $uid",
+              ".write": "auth != null && auth.uid === $uid && ('' + root.child('rooms').child($code).child('meta').child('round').val()) === $round && newData.exists() && (root.child('rooms').child($code).child('meta').child('status').val() === 'waiting' || root.child('rooms').child($code).child('meta').child('status').val() === 'running' || root.child('rooms').child($code).child('meta').child('status').val() === 'paused')",
+              ".validate": "newData.hasChildren(['name','className','joinedAt','state'])",
+              "name": {
+                ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 60 && (!data.exists() || newData.val() === data.val())"
+              },
+              "className": {
+                ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 12 && (!data.exists() || newData.val() === data.val())"
+              },
+              "joinedAt": {
+                ".validate": "newData.isNumber() && (!data.exists() ? newData.val() === now : newData.val() === data.val())"
+              },
+              "state": {
+                ".validate": "newData.hasChildren(['step','score','errors','bonuses','at','levelStart','pauseBase','item','slot']) && newData.child('at').val() === now && ((!data.exists() && newData.child('step').val() === 0 && newData.child('score').val() === 0 && newData.child('errors').val() === 0 && newData.child('bonuses').val() === 0 && newData.child('levelStart').val() === 0 && newData.child('pauseBase').val() === 0 && newData.child('item').val() === '-' && newData.child('slot').val() === '-') || (data.exists() && root.child('rooms').child($code).child('meta').child('status').val() === 'running' && root.child('rooms').child($code).child('admissions').child($round).child(auth.uid).val() === true && data.child('step').val() < 61 && now >= data.child('at').val() + 200 && root.child('catalog/v1/items').child(newData.child('item').val()).exists() && root.child('catalog/v1/slots').child(newData.child('slot').val()).exists() && newData.child('step').val() === data.child('step').val() + ((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) ? 1 : 0) && newData.child('errors').val() === data.child('errors').val() + ((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) ? 0 : 1) && (newData.child('bonuses').val() === data.child('bonuses').val() || (((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) && root.child('catalog/v1/steps').child('' + data.child('step').val()).child('end').val() === true) && data.child('levelStart').val() > 0 && now - data.child('levelStart').val() - (root.child('rooms').child($code).child('meta').child('pausedMs').val() - data.child('pauseBase').val()) <= 60000 && newData.child('bonuses').val() === data.child('bonuses').val() + 5)) && newData.child('score').val() === data.child('score').val() + ((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) ? 10 : -2) + newData.child('bonuses').val() - data.child('bonuses').val() && newData.child('levelStart').val() === (((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) && root.child('catalog/v1/steps').child('' + data.child('step').val()).child('end').val() === true) ? 0 : (data.child('levelStart').val() === 0 ? now : data.child('levelStart').val())) && newData.child('pauseBase').val() === (((newData.child('item').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('item').val() && newData.child('slot').val() === root.child('catalog/v1/steps').child('' + data.child('step').val()).child('slot').val()) && root.child('catalog/v1/steps').child('' + data.child('step').val()).child('end').val() === true) ? 0 : (data.child('levelStart').val() === 0 ? root.child('rooms').child($code).child('meta').child('pausedMs').val() : data.child('pauseBase').val()))))",
+                "step": {
+                  ".validate": "newData.isNumber()"
+                },
+                "score": {
+                  ".validate": "newData.isNumber()"
+                },
+                "errors": {
+                  ".validate": "newData.isNumber()"
+                },
+                "bonuses": {
+                  ".validate": "newData.isNumber()"
+                },
+                "at": {
+                  ".validate": "newData.isNumber()"
+                },
+                "levelStart": {
+                  ".validate": "newData.isNumber()"
+                },
+                "pauseBase": {
+                  ".validate": "newData.isNumber()"
+                },
+                "item": {
+                  ".validate": "newData.isString() && newData.val().length <= 20"
+                },
+                "slot": {
+                  ".validate": "newData.isString() && newData.val().length <= 20"
+                },
+                "$other": {
+                  ".validate": false
+                }
+              },
+              "$other": {
+                ".validate": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
